@@ -24,8 +24,12 @@ class Matrix {
 
 
         // swap row operation for LLL
+        void swap_rows(int i, int j);
 
         // reduce row i by row j * scalar
         void scale_row(int i, int j, double scalar);
 
+
+        // change single elements
+        double& at(int i, int j);
 }
