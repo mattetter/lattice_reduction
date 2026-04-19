@@ -1,0 +1,5 @@
+lattice_reduction_demo
+*.o
+*.out
+.vscode/
+.DS_Store
