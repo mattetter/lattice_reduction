@@ -36,7 +36,10 @@ double Matrix::dot(int i, int j) const {
 }
 
 void Matrix:: swap_rows(int i, int j) {
-    //TODO
+    // swap row i with row j
+    vector<double> temp = data[i];
+    data[i] = data[j];
+    data[j] = temp;
 }
 
 void Matrix::scale_row(int i, int j, double scalar){
