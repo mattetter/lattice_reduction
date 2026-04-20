@@ -42,8 +42,30 @@ void Matrix:: swap_rows(int i, int j) {
     data[j] = temp;
 }
 
-void Matrix::scale_row(int i, int j, double scalar){
-    //TODO
+vector<double> Matrix::scale_vector(const vector<double>& row, double scalar){
+    vector<double> ret;
+    ret.reserve(row.size());
+    for(double val: row){
+        ret.push_back(val*scalar);
+    }
+    return ret;
+}
+
+vector<double> Matrix::vec_vec_subtr(const vector<double>& minuend, const vector<double>& subtrahend){
+    vector<double> difference;
+    difference.reserve(minuend.size());
+    for(size_t i = 0; i < minuend.size(); i++){
+        difference.push_back(minuend[i]- subtrahend[i]);
+    }
+
+    return difference;
+
+}
+void Matrix::sub_scale_row(int i, int j, double scalar){
+    // get j scaled first
+    vector<double> j_scaled = scale_vector(data[j], scalar);
+    // reduce i
+    data[i] = vec_vec_subtr(data[i], j_scaled);
 }
 
 double& Matrix:: at(int i, int j) {return data[i][j]; }
