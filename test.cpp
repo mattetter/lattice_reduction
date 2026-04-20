@@ -1,22 +1,25 @@
 # include "matrix.h"
+# include "lll.h"
 #include <cassert>
 #include <iostream>
 
 int main() {
-    Matrix A = {{1, 1, 1},
+    Matrix B = {{1, 1, 2},
                 {2, 2, 1},
                 {-1, 2, 3}};
 
-    cout<<"A: \n";
-    A.print();
+    // nxm
+    Matrix b_star(B.rows(), B.cols());
+    //nxn
+    Matrix mu(B.rows(), B.rows());
 
-    assert(A.at(2,0) == -1);
-    assert(A.at(0,0)== 1);
+    gs(B, b_star, mu);
 
-    // A.swap_rows(0, 2);
-    // A.print();
+    cout<<"bstar";
+    b_star.print();
 
-    A.sub_scale_row(0, 1, 2.0);
-
-    A.print();
+    // check that columns are orthogonal
+    cout<< dot(b_star[0], b_star[1])<<endl;
+    cout<<dot(b_star[1], b_star[2])<<endl;
+    cout<<dot(b_star[2], b_star[0])<<endl;
 }

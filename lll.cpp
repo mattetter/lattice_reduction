@@ -4,7 +4,7 @@
 
 double dot(const vector<double>& u, const vector<double>& v){
     double ret = 0.0;
-    for (int k = 0; k < cols(); k++){
+    for (size_t k = 0; k < u.size(); k++){
         ret += v[k] * u[k];
     }
 
@@ -21,15 +21,14 @@ void gs(Matrix& B, Matrix& b_star, Matrix& mu){
         // loop through all earlier indexes
         for (int j = 0; j < i; j++){
             //calculate the coefficient Bi@b*j/ norm squared of b*j
-            mu.at(i, j) = dot()
-            
-            //subtract the shadow of b*j from b*i
-
+            mu.at(i, j) = dot(B[i], b_star[j]) / dot(b_star[j], b_star[j]);
+            //subtract the shadow of b*j from b*i using the matrix function created for this
+            b_star.sub_scale_row(i, j, mu.at(i,j) );
         }
     }
 }
 
 
 void lll(Matrix& B){
-    double delta = 0.75;
+    //double delta = 0.75;
 }
