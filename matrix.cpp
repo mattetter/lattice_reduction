@@ -22,14 +22,14 @@ int Matrix::cols() const {
     if (!data.empty()){
     return data[0].size();
     } else {
-        return -1;
+        return 0;
     }
 }
 
-double Matrix::dot(int i, int j) const {
+double Matrix::dot(const vector<double>& u, const vector<double>& v){
     double ret = 0.0;
     for (int k = 0; k < cols(); k++){
-        ret += data[i][k] * data[j][k];
+        ret += v[k] * u[k];
     }
 
     return ret;
@@ -61,6 +61,7 @@ vector<double> Matrix::vec_vec_subtr(const vector<double>& minuend, const vector
     return difference;
 
 }
+
 void Matrix::sub_scale_row(int i, int j, double scalar){
     // get j scaled first
     vector<double> j_scaled = scale_vector(data[j], scalar);
@@ -70,6 +71,10 @@ void Matrix::sub_scale_row(int i, int j, double scalar){
 
 double& Matrix:: at(int i, int j) {return data[i][j]; }
 
+vector<double>& Matrix::operator[](int i) {
+    return data[i];
+}
+
 void Matrix::print() const{
     for (int i = 0; i < rows(); i++){
         for (int j = 0; j < cols(); j++){
@@ -78,3 +83,5 @@ void Matrix::print() const{
         cout<< "\n";
     }
 }
+
+

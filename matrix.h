@@ -17,7 +17,7 @@ class Matrix {
 
         // find the idfference between two vectors
         vector<double> vec_vec_subtr(const vector<double>& minuend, const vector<double>& subtrahend);
-        
+
     public: 
         // Constructor
         Matrix(int rows, int cols);
@@ -30,7 +30,7 @@ class Matrix {
         int cols() const;
 
         // obtain dot product of two rows - need for LLL
-        double dot(int i, int j) const;
+        double dot(const vector<double>& u, const vector<double>& v);
 
 
         // swap row operation for LLL
@@ -46,6 +46,9 @@ class Matrix {
 
         // print nicely for debugging
         void print() const;
+
+        // add access for rows
+        vector<double>& operator[](int i);
 };
 
 #endif
