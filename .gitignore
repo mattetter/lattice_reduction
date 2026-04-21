@@ -1,5 +1,6 @@
-lattice_reduction_demo
-*.o
-*.out
-.vscode/
-.DS_Store
+# exclude everything
+build/*
+ipch
+
+# exception to the rule
+!build/.gitkeep 
