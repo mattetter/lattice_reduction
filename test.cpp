@@ -4,9 +4,12 @@
 #include <iostream>
 
 int main() {
-    Matrix B = {{1, 1, 2},
-                {2, 2, 1},
-                {-1, 2, 3}};
+    Matrix B = {{1, 1, 2, 7, 9, -3},
+                {2, 2, 1, 4, 3, -9},
+                {-1, 2, 3, 1, -1, 8},
+                {5, 6, 7, 8, 9 , 3},
+                {1, 1, 1, 1, 1, 1},
+                {9, 0, 9, 9, 9, 0}};
 
     // nxm
     Matrix b_star(B.rows(), B.cols());
@@ -32,5 +35,16 @@ int main() {
 
     cout<<"after"<<endl;
     B.print();
+
+    // re-run GS to see if vals of mu are <= .5 and that ||b_star_i||^2 drops smoothly
+
+    gs(B, b_star, mu);
+
+    mu.print();
+
+
+    for(int i = 0; i < b_star.rows(); i++){
+        cout<<"||b_star_i||^2: "<< dot(b_star[i], b_star[i])<<endl; 
+    }
 
 }

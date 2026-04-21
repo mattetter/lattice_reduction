@@ -40,6 +40,7 @@ void lll(Matrix& B){
     int i = 1;
     // a while loop because we need to rewind occasionally
     while (i < B.rows()){
+        cout<< "i = "<< i<<", mu{i, i-1} = " << mu.at(i, i-1)<< endl;
         // reduction step
         for (int j = i-1; j>= 0; j--){
             // adjust the ith vector in basis sso that bi = bi − ⌊µ_{i,j} ⌉bj
@@ -53,6 +54,8 @@ void lll(Matrix& B){
         double lovasz = (delta - mu.at(i, i-1)*mu.at(i, i-1)) *(dot(b_star[i-1],b_star[i-1]));
         if (lovasz > dot(b_star[i], b_star[i])){
             B.swap_rows(i, i-1);
+            // recompute mu for the changed B 
+            gs(B, b_star, mu);
             // rewind if we swapped
             if (i > 1){
                 i--;
