@@ -13,13 +13,24 @@ int main() {
     //nxn
     Matrix mu(B.rows(), B.rows());
 
-    gs(B, b_star, mu);
+    // gs(B, b_star, mu);
 
-    cout<<"bstar";
-    b_star.print();
+    // cout<<"bstar \n";
+    // b_star.print();
 
-    // check that columns are orthogonal
-    cout<< dot(b_star[0], b_star[1])<<endl;
-    cout<<dot(b_star[1], b_star[2])<<endl;
-    cout<<dot(b_star[2], b_star[0])<<endl;
+    // // check that columns are orthogonal
+    // cout<< dot(b_star[0], b_star[1])<<endl;
+    // cout<<dot(b_star[1], b_star[2])<<endl;
+    // cout<<dot(b_star[2], b_star[0])<<endl;
+
+    // mu.print();
+
+    cout<<"Before"<<endl;
+    B.print();
+
+    lll(B);
+
+    cout<<"after"<<endl;
+    B.print();
+
 }
