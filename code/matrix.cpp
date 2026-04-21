@@ -26,15 +26,6 @@ int Matrix::cols() const {
     }
 }
 
-double Matrix::dot(const vector<double>& u, const vector<double>& v){
-    double ret = 0.0;
-    for (int k = 0; k < cols(); k++){
-        ret += v[k] * u[k];
-    }
-
-    return ret;
-}
-
 void Matrix:: swap_rows(int i, int j) {
     // swap row i with row j
     vector<double> temp = data[i];

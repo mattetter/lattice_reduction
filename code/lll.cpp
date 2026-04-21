@@ -40,7 +40,7 @@ void lll(Matrix& B){
     int i = 1;
     // a while loop because we need to rewind occasionally
     while (i < B.rows()){
-        cout<< "i = "<< i<<", mu{i, i-1} = " << mu.at(i, i-1)<< endl;
+        // cout<< "i = "<< i<<", mu{i, i-1} = " << mu.at(i, i-1)<< endl;
         // reduction step
         for (int j = i-1; j>= 0; j--){
             // adjust the ith vector in basis sso that bi = bi − ⌊µ_{i,j} ⌉bj

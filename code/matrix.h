@@ -29,10 +29,6 @@ class Matrix {
         int rows() const;
         int cols() const;
 
-        // obtain dot product of two rows - need for LLL
-        double dot(const vector<double>& u, const vector<double>& v);
-
-
         // swap row operation for LLL
         void swap_rows(int i, int j);
 
