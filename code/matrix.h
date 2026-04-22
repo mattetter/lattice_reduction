@@ -12,12 +12,6 @@ class Matrix {
         // a matrix is just a list of rows of doubles
         vector<vector<double>> data;
 
-                // scale vector by scalar
-        vector<double> scale_vector(const vector<double>& row, double scalar);
-
-        // find the idfference between two vectors
-        vector<double> vec_vec_subtr(const vector<double>& minuend, const vector<double>& subtrahend);
-
     public: 
         // Constructor
         Matrix(int rows, int cols);
